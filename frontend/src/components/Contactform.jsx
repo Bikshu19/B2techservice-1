@@ -18,7 +18,7 @@ export default function ContactForm() {
     if (!form.email) return setStatus("⚠️ Please enter your email first");
     setLoadingOtp(true);
     try {
-      const res = await fetch("http://localhost:5000/api/contact/send-otp", {
+      const res = await fetch("https://b2techservic.onrender.com/api/contact/send-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: form.email }),
@@ -36,7 +36,7 @@ export default function ContactForm() {
     if (!form.otp) return setStatus("⚠️ Please enter the OTP");
     setLoadingVerify(true);
     try {
-      const res = await fetch("http://localhost:5000/api/contact/verify-otp", {
+      const res = await fetch("https://b2techservic.onrender.com/api/contact/verify-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: form.email, otp: form.otp }),
@@ -55,7 +55,7 @@ export default function ContactForm() {
     if (!verified) return setStatus("⚠️ Please verify email first");
     setLoadingSubmit(true);
     try {
-      const res = await fetch("http://localhost:5000/api/contact", { // Updated endpoint
+      const res = await fetch("https://b2techservic.onrender.com/api/contact", { // Updated endpoint
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
