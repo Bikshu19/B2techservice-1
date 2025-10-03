@@ -4,6 +4,7 @@ import { Users, Award, Smile } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import Textani from "./textanimations";
 import { Link } from "react-router-dom";
+import bgImage from './hu.jpg';
 
 function Counter({ from = 0, to }) {
   const count = useMotionValue(from);
@@ -40,7 +41,11 @@ function Herosection() {
 
   return (
     <div>
-      <section className="relative bg-[url('./guy-shows-document-girl-group-young-freelancers-office-have-conversation-working.jpg')] bg-cover bg-center min-h-screen flex items-center py-16">
+          <section
+      className="relative bg-cover bg-center min-h-screen flex items-center py-16"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
+
         <div className="absolute top-0 left-0 w-full z-50">
           <Navbar />
         </div>
