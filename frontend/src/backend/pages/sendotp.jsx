@@ -29,7 +29,7 @@ export default function SendOtp() {
       email === email.toUpperCase() ? email.toLowerCase() : email;
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/sendotp", {
+      const res = await fetch("https://b2techservic.onrender.com/api/auth/sendotp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: emailToSend }),
