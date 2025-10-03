@@ -26,22 +26,22 @@ function Footer() {
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">
             <ul className="space-y-3">
               <li>
-                <Link to="/recruitmentservice" className="hover:text-[#00809D] transition">
+                <Link to="/recruitmentService" className="hover:text-[#00809D] transition">
                   Recruitment Service
                 </Link>
               </li>
               <li>
-                <Link to="/softwaretraining" className="hover:text-[#00809D] transition">
+                <Link to="/softwareTraining" className="hover:text-[#00809D] transition">
                   Software Training
                 </Link>
               </li>
               <li>
-                <Link to="/resumeservices" className="hover:text-[#00809D] transition">
+                <Link to="/resumeServices" className="hover:text-[#00809D] transition">
                   Resume Services
                 </Link>
               </li>
               <li>
-                <Link to="/ui" className="hover:text-[#00809D] transition">
+                <Link to="/uiUxDesignThinking" className="hover:text-[#00809D] transition">
                   UI/UX Design Thinking
                 </Link>
               </li>
@@ -52,17 +52,17 @@ function Footer() {
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">
             <ul className="space-y-3">
               <li>
-                <Link to="/whatssets" className="hover:text-[#00809D] transition">
+                <Link to="/whatSetsUsApart" className="hover:text-[#00809D] transition">
                   What Sets Us Apart
                 </Link>
               </li>
               <li>
-                <Link to="/growth" className="hover:text-[#00809D] transition">
+                <Link to="/growthJourney" className="hover:text-[#00809D] transition">
                   Growth Journey
                 </Link>
               </li>
               <li>
-                <Link to="/founder" className="hover:text-[#00809D] transition">
+                <Link to="/foundersVision" className="hover:text-[#00809D] transition">
                   Founder's Vision
                 </Link>
               </li>
@@ -83,12 +83,12 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/companyphilosophy" className="hover:text-[#00809D] transition">
+                <Link to="/companyPhilosophy" className="hover:text-[#00809D] transition">
                   Company Philosophy
                 </Link>
               </li>
               <li>
-                <Link to="/corevalues" className="hover:text-[#00809D] transition">
+                <Link to="/coreValues" className="hover:text-[#00809D] transition">
                   Core Values
                 </Link>
               </li>
