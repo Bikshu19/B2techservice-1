@@ -11,7 +11,7 @@ export default function VerifyOtp() {
     setMessage("");
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/verifyotp", {
+      const res = await fetch("https://b2techservic.onrender.com/api/auth/verifyotp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ otp }),
