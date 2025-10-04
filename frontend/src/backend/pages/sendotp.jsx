@@ -4,42 +4,46 @@ import { useNavigate } from "react-router-dom";
 export default function SendOtp() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false); // new state
   const navigate = useNavigate();
 
   const handleSendOtp = async (e) => {
     e.preventDefault();
     setMessage("");
+    setLoading(true); // start loading
 
     if (!email) {
       setMessage("Email is required");
+      setLoading(false);
       return;
     }
 
-    // Regex to match the exact pattern (case-insensitive)
-    // const emailPattern = /^HRUSHIKESH@B2TECHSERVICES\.IN$/i;
+    // Regex to match exact email
     const emailPattern = /^BIKSHAMAIAHTULLIMILLI@GMAIL\.COM$/i;
 
     if (!emailPattern.test(email)) {
       setMessage("Email must be HRUSHIKESH@B2TECHSERVICES.IN");
+      setLoading(false);
       return;
     }
 
-    // Convert to lowercase only if the user entered it in all capital letters
     const emailToSend =
       email === email.toUpperCase() ? email.toLowerCase() : email;
 
     try {
-      const res = await fetch("https://b2techservic.onrender.com/api/auth/sendotp", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: emailToSend }),
-      });
+      const res = await fetch(
+        "https://b2techservic.onrender.com/api/auth/sendotp",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: emailToSend }),
+        }
+      );
 
       const data = await res.json();
 
       if (res.ok) {
         setMessage("OTP sent to your email!");
-        // Navigate to OTP verification page
         navigate("/verify-otp");
       } else {
         setMessage(data.message || "Error sending OTP");
@@ -47,6 +51,8 @@ export default function SendOtp() {
     } catch (err) {
       console.error(err);
       setMessage("Server error");
+    } finally {
+      setLoading(false); // stop loading after API call finishes
     }
   };
 
@@ -99,9 +105,14 @@ export default function SendOtp() {
 
             <button
               type="submit"
-              className="w-full bg-[#00809D] text-white py-3 px-4 rounded-lg font-semibold hover:bg-[#006b85] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+              disabled={loading}
+              className={`w-full py-3 px-4 rounded-lg font-semibold transition-all duration-200 shadow-md ${
+                loading
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-[#00809D] text-white hover:bg-[#006b85] hover:shadow-lg transform hover:-translate-y-0.5"
+              }`}
             >
-              Send OTP
+              {loading ? "Sending OTP..." : "Send OTP"}
             </button>
 
             {message && (
